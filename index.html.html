@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMii Eyewear — Taman Palem</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #F2E8D5;
+    font-family: 'Jost', sans-serif;
+    color: #3A2E22;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #F8F2E6;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Top band */
+  .hero {
+    background: #F26339;
+    padding: 48px 28px 64px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 36px;
+    background: #F8F2E6;
+    border-radius: 36px 36px 0 0;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #F8D9C8;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .logo-img {
+    display: block;
+    width: 168px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #FBE3D6;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Body content */
+  .content {
+    padding: 8px 28px 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B08552;
+    margin: 28px 0 12px;
+  }
+
+  .lead-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: #3A2E22;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .sub-line {
+    font-size: 13px;
+    color: #8A7A64;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* Action buttons */
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    padding: 16px 18px;
+    border-radius: 10px;
+    transition: transform 0.15s ease;
+  }
+
+  .btn:active { transform: scale(0.98); }
+
+  .btn-primary {
+    background: #25D366;
+    color: #FFFFFF;
+  }
+
+  .btn-secondary {
+    background: #FFFFFF;
+    border: 1px solid #E6D9C2;
+    color: #3A2E22;
+  }
+
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.22);
+  }
+
+  .btn-secondary .btn-icon { background: #F2E8D5; }
+
+  .btn-icon svg { width: 19px; height: 19px; }
+
+  .btn-text { flex: 1; }
+
+  .btn-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 1px;
+  }
+
+  .btn-sub {
+    font-size: 12px;
+    opacity: 0.85;
+  }
+
+  .btn-arrow {
+    font-size: 16px;
+    opacity: 0.6;
+  }
+
+  /* Socials row */
+  .socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .social-pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    background: #FFFFFF;
+    border: 1px solid #E6D9C2;
+    border-radius: 10px;
+    padding: 14px 8px;
+    color: #3A2E22;
+  }
+
+  .social-pill svg { width: 20px; height: 20px; }
+
+  .social-pill span {
+    font-size: 11px;
+    color: #8A7A64;
+    letter-spacing: 0.3px;
+  }
+
+  /* Info card */
+  .info-card {
+    margin-top: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E6D9C2;
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .info-row + .info-row {
+    border-top: 1px solid #F0E7D5;
+  }
+
+  .info-row svg {
+    width: 17px; height: 17px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    fill: #C8A070;
+  }
+
+  .info-row .label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #B08552;
+    margin-bottom: 2px;
+  }
+
+  .info-row .value {
+    font-size: 13.5px;
+    color: #3A2E22;
+  }
+
+  .map-link {
+    color: #F26339;
+    text-decoration: underline;
+    font-size: 12.5px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 28px 36px;
+    font-size: 11px;
+    color: #B0A284;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Optical store — Taman Palem</p>
+    <img class="logo-img" src="data:image/png;base64,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" alt="LUMii">
+    <p class="tagline">See better, look better</p>
+  </div>
+
+  <div class="content">
+
+    <p class="lead-line">Visit us or say hello</p>
+    <p class="sub-line">Frames, lenses, and eye checks at our Taman Palem store.</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://wa.me/6285121930093" target="_blank" rel="noopener">
+        <span class="btn-icon">
+          <svg viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.69.44 3.34 1.28 4.79L2 22l5.45-1.38a9.86 9.86 0 0 0 4.59 1.13h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 17.93h-.01a8.2 8.2 0 0 1-4.07-1.11l-.29-.17-3.04.77.81-2.96-.19-.3a8.19 8.19 0 0 1-1.26-4.25c0-4.54 3.7-8.23 8.25-8.23 4.54 0 8.23 3.7 8.23 8.24 0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+        </span>
+        <span class="btn-text">
+          <span class="btn-title">Chat on WhatsApp</span>
+          <span class="btn-sub">0851-2193-0093</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <a class="btn btn-secondary" href="https://maps.app.goo.gl/ffPbRMDvzXAdeZ9B7" target="_blank" rel="noopener">
+        <span class="btn-icon">
+          <svg viewBox="0 0 24 24"><path fill="#F26339" d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
+        </span>
+        <span class="btn-text">
+          <span class="btn-title">Get directions</span>
+          <span class="btn-sub">Taman Palem, Cengkareng</span>
+        </span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <p class="section-label">Follow us</p>
+    <div class="socials">
+      <a class="social-pill" href="https://instagram.com/lumii.eye" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077" fill="#FF0069"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a class="social-pill" href="https://www.tiktok.com/@lumiieyewear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#000000"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a class="social-pill" href="https://shopee.co.id/lumiieyewear" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M15.9414 17.9633c.229-1.879-.981-3.077-4.1758-4.0969-1.548-.528-2.277-1.22-2.26-2.1719.065-1.056 1.048-1.825 2.352-1.85a5.2898 5.2898 0 0 1 2.8838.89c.116.072.197.06.263-.039.09-.145.315-.494.39-.62.051-.081.061-.187-.068-.281-.185-.1369-.704-.4149-.983-.5319a6.4697 6.4697 0 0 0-2.5118-.514c-1.909.008-3.4129 1.215-3.5389 2.826-.082 1.1629.494 2.1078 1.73 2.8278.262.152 1.6799.716 2.2438.892 1.774.552 2.695 1.5419 2.478 2.6969-.197 1.047-1.299 1.7239-2.818 1.7439-1.2039-.046-2.2878-.537-3.1278-1.19l-.141-.11c-.104-.08-.218-.075-.287.03-.05.077-.376.547-.458.67-.077.108-.035.168.045.234.35.293.817.613 1.134.775a6.7097 6.7097 0 0 0 2.8289.727 4.9048 4.9048 0 0 0 2.0759-.354c1.095-.465 1.8029-1.394 1.9449-2.554zM11.9986 1.4009c-2.068 0-3.7539 1.95-3.8329 4.3899h7.6657c-.08-2.44-1.765-4.3899-3.8328-4.3899zm7.8516 22.5981-.08.001-15.7843-.002c-1.074-.04-1.863-.91-1.971-1.991l-.01-.195L1.298 6.2858a.459.459 0 0 1 .45-.494h4.9748C6.8448 2.568 9.1607 0 11.9996 0c2.8388 0 5.1537 2.5689 5.2757 5.7898h4.9678a.459.459 0 0 1 .458.483l-.773 15.5883-.007.131c-.094 1.094-.979 1.9769-2.0709 2.0059z" fill="#EE4D2D"/></svg>
+        <span>Shopee</span>
+      </a>
+    </div>
+
+    <div class="info-card">
+      <div class="info-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.5 7.5 12.5 7.5 12.5s7.5-7 7.5-12.5C19.5 5.36 16.14 2 12 2zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5z"/></svg>
+        <div>
+          <p class="label">Store address</p>
+          <p class="value">Ruko Taman Palem Lestari, Jl. Taman Palem Lestari No.4, Cengkareng, Jakarta Barat 11730</p>
+          <a class="map-link" href="https://maps.app.goo.gl/ffPbRMDvzXAdeZ9B7" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.75 5v5.4l4.6 2.73-.75 1.27-5.35-3.2V7h1.5z"/></svg>
+        <div>
+          <p class="label">Store hours</p>
+          <p class="value">Every day, 10:00–21:00</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">LUMii Eyewear &middot; Taman Palem, Jakarta Barat</div>
+
+</div>
+</body>
+</html>
